@@ -5,7 +5,7 @@
   "scripts": {
     "serve": "vue-cli-service serve",
     "lint": "vue-cli-service lint",
-    "lib": "vue-cli-service build --target lib --name vue-page-preview --dest lib packages/index.js"
+    "lib": "vue-cli-service build --target lib --name vue-page-preview --dest lib src/index.js"
   },
   "dependencies": {
     "core-js": "^3.29.1",
