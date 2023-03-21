@@ -1,31 +1,29 @@
 <template>
   <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
-    <div @click="handleClick">点击预览</div>
+    <img alt="Vue logo" src="./assets/logo.png" />
+    <HelloWorld msg="Welcome to Your Vue.js App" />
+    <div @click="handleClick" style="cursor: pointer">点击预览</div>
     <page-preview ref="page-preview">
       page
-      <template v-slot:index>
-        index
-      </template>
+      <template v-slot:index> index </template>
     </page-preview>
   </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+import HelloWorld from "./components/HelloWorld.vue";
 
 export default {
-  name: 'App',
+  name: "App",
   components: {
-    HelloWorld
+    HelloWorld,
   },
   methods: {
-    handleClick(){
-      this.$refs['page-preview'].show = true;
-    }
+    handleClick() {
+      this.$refs["page-preview"].show = true;
+    },
   },
-}
+};
 </script>
 
 <style>
