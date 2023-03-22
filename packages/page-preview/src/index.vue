@@ -28,14 +28,24 @@
 </template>
 
 <script>
-import "./assets/icon/iconfont.css"
+import "./assets/icon/iconfont.css";
 export default {
   name: "pagePreview",
+  props: ["val", "default", "max", "min"],
   data() {
     return {
       show: false,
-      zoom: 1.3,
     };
+  },
+  computed: {
+    zoom: {
+      get() {
+        return this.val || 1;
+      },
+      set(val) {
+        this.$emit("update:val", val);
+      },
+    },
   },
   methods: {
     handlePreview() {
@@ -43,17 +53,17 @@ export default {
     },
     handleClose() {
       this.show = false;
-      this.zoom = 1.3;
+      this.zoom = this.default;
     },
     handleZoomIn() {
-      if (this.zoom > 2) {
+      if (this.zoom > this.max) {
         return;
       }
       this.zoom = this.zoom + 0.1;
       console.log(this.zoom);
     },
     handleZoomOut() {
-      if (this.zoom < 0.9) {
+      if (this.zoom < this.min) {
         return;
       }
       this.zoom = this.zoom - 0.1;

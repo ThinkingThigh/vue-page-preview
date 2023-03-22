@@ -1,12 +1,12 @@
 <template>
   <div>
     <div @click="handleClick" style="cursor: pointer">点击预览</div>
-    <page-preview ref="page-preview">
+    <page-preview ref="page-preview" :val.sync="val" default="1.3" max="2" min="0.9">
       <div class="content-container">
-        <div v-for="item in list" :key="item.title">
-          <div>{{ item.title }}</div>
-          <div>{{ item.author }}</div>
-          <div>{{ item.description }}</div>
+        <div class="item" v-for="item in list" :key="item.title">
+          <div class="title">{{ item.title }}</div>
+          <div class="author">{{ item.author }}</div>
+          <div class="description">{{ item.description }}</div>
         </div>
       </div>
 
@@ -21,6 +21,7 @@ export default {
   components: {},
   data() {
     return {
+      val: 1.3,
       list: [
         {
           title: "人类简史",
@@ -105,5 +106,12 @@ export default {
 .content-container {
   display: flex;
   flex-direction: column;
+  font-size: 14px;
+}
+.item {
+  margin-bottom: 14px;
+}
+.item .title {
+  font-weight: bold;
 }
 </style>
