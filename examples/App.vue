@@ -37,6 +37,7 @@
 </template>
 
 <script>
+// import { accMul } from "../packages/page-preview/src/utils/calculate"
 export default {
   name: "App",
   components: {},
@@ -129,10 +130,12 @@ export default {
       let scrollTop =
         document.querySelector(".preview-container").scrollTop + 2; // 一些精度问题
       let domOffsetTops = [];
-      let zoom = this.val;
       for (let i = 0; i < doms.length; i++) {
-        domOffsetTops.push(doms[i].offsetTop * zoom);
+        domOffsetTops.push(doms[i].offsetTop * this.val);
+        // domOffsetTops.push(accMul(doms[i].offsetTop, this.val));
       }
+      console.log("scrollTop", scrollTop);
+      console.log("domOffsetTops", domOffsetTops);
 
       if (scrollTop < domOffsetTops[0]) {
         this.active = 0;
@@ -145,7 +148,6 @@ export default {
       for (let i = 0; i < domOffsetTops.length; i++) {
         if (scrollTop > domOffsetTops[i] && scrollTop < domOffsetTops[i + 1]) {
           this.active = i;
-          break;
         }
       }
     },
