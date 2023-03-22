@@ -29,6 +29,7 @@
 
 <script>
 import "./assets/icon/iconfont.css";
+import { accAdd, accSub } from "./utils/calculate";
 export default {
   name: "pagePreview",
   props: ["val", "default", "max", "min"],
@@ -56,17 +57,17 @@ export default {
       this.zoom = this.default;
     },
     handleZoomIn() {
-      if (this.zoom > this.max) {
+      if (this.zoom >= this.max) {
         return;
       }
-      this.zoom = this.zoom + 0.1;
+      this.zoom = accAdd(this.zoom, 0.1);
       console.log(this.zoom);
     },
     handleZoomOut() {
-      if (this.zoom < this.min) {
+      if (this.zoom <= this.min) {
         return;
       }
-      this.zoom = this.zoom - 0.1;
+      this.zoom = accSub(this.zoom, 0.1);
       console.log(this.zoom);
     },
   },
