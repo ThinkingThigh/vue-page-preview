@@ -25,9 +25,9 @@
               :key="item.title"
               @click="handleClickIndex(index)"
             >
-              <el-tooltip effect="dark" :content="item.title" placement="right">
-                <span class="index-title">{{ item.title }}</span>
-              </el-tooltip>
+              <span class="index-title" :title="item.title">{{
+                item.title
+              }}</span>
             </div>
           </div>
         </div>
