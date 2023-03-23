@@ -25,7 +25,7 @@
               :key="item.title"
               @click="handleClickIndex(index)"
             >
-              <span class="index-title" :title="item.title">{{
+              <span class="index-title" :data-tooltip="item.title">{{
                 item.title
               }}</span>
             </div>
@@ -204,6 +204,26 @@ export default {
         white-space: nowrap;
         width: 90px;
         font-size: 10px;
+        &:hover {
+          &:after {
+            content: attr(data-tooltip);
+            position: absolute;
+            left: 75px;
+            font-size: 14px;
+            padding: 5px 10px;
+            background-color: rgba(18, 26, 44, 0.8);
+            color: #fff;
+          }
+          // &:before {
+          //   content: "";
+          //   position: absolute;
+          //   left: 61px;
+          //   transform: rotate(270deg);
+          //   border-width: 7px;
+          //   border-style: solid;
+          //   border-color: transparent transparent rgba(18, 26, 44, 0.8) transparent;
+          // }
+        }
       }
       &:last-child {
         margin-bottom: 0;
