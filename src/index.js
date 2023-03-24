@@ -1,7 +1,7 @@
 import pagePreview from "../packages/page-preview";
-import pagePopover from "../packages/page-popover";
+import pageIndex from "../packages/page-index";
 
-const components = [pagePreview, pagePopover];
+const components = [pagePreview, pageIndex];
 const install = function (Vue, opts = {}) {
   console.log(opts);
   components.forEach((component) => {
@@ -11,4 +11,4 @@ const install = function (Vue, opts = {}) {
 if (typeof window !== "undefined" && window.Vue) {
   install(window.Vue);
 }
-export { install, pagePreview, pagePopover };
+export { install, pagePreview, pageIndex };
