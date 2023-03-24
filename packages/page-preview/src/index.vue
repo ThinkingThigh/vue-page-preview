@@ -49,6 +49,14 @@ export default {
     },
   },
   methods: {
+    showPreview() {
+      this.show = true;
+      setTimeout(() => {
+        // 监听滚动条
+        let dom = document.querySelector(".preview-container");
+        dom.addEventListener("scroll", this.handleScroll);
+      }, 0);
+    },
     handlePreview() {
       this.show = true;
     },

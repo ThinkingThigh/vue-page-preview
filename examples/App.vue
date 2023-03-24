@@ -101,12 +101,7 @@ export default {
   },
   methods: {
     handleClick() {
-      this.$refs["page-preview"].show = true;
-      setTimeout(() => {
-        // 监听滚动条
-        let dom = document.querySelector(".preview-container");
-        dom.addEventListener("scroll", this.handleScroll);
-      }, 0);
+      this.$refs["page-preview"].showPreview();
     },
   },
 };
